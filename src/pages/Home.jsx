@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import HeroSection from '../components/HeroSection'
 import SectionHeading from '../components/SectionHeading'
 import DestinationCard from '../components/DestinationCard'
@@ -6,6 +7,32 @@ import { destinations } from '../data/destinations'
 
 /* Featured destinations – first 6 */
 const featured = destinations.slice(0, 6)
+
+/* ── Reusable scroll-reveal wrapper ── */
+const revealUp = {
+  hidden: { opacity: 0, y: 40 },
+  show:   { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+}
+
+const stagger = {
+  hidden: {},
+  show:   { transition: { staggerChildren: 0.1 } },
+}
+
+function Reveal({ children, className, delay = 0, amount = 0.15 }) {
+  return (
+    <motion.div
+      className={className}
+      variants={revealUp}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount }}
+      transition={{ delay }}
+    >
+      {children}
+    </motion.div>
+  )
+}
 
 /* ── Feature cards data ── */
 const features = [
@@ -69,16 +96,25 @@ export default function Home() {
       {/* 2. Why Choose Us */}
       <section id="features" className="py-20 sm:py-28 bg-brand-sand-light">
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
-          <SectionHeading
-            label="Why Adventure Journeys"
-            title="Travel Designed Around You"
-            subtitle="We go beyond booking flights and hotels. Every detail is curated to create a seamless, unforgettable experience from departure to return."
-          />
+          <Reveal>
+            <SectionHeading
+              label="Why Adventure Journeys"
+              title="Travel Designed Around You"
+              subtitle="We go beyond booking flights and hotels. Every detail is curated to create a seamless, unforgettable experience from departure to return."
+            />
+          </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.1 }}
+          >
             {features.map(({ icon, title, description }) => (
-              <div
+              <motion.div
                 key={title}
+                variants={revealUp}
                 className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md
                            hover:-translate-y-1 transition-all duration-300 group"
               >
@@ -90,77 +126,95 @@ export default function Home() {
                 </div>
                 <h3 className="font-display font-bold text-lg text-slate-800 mb-2">{title}</h3>
                 <p className="text-sm text-slate-500 leading-relaxed">{description}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* 3. Namibia spotlight banner */}
       <section className="py-10 bg-white">
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
-          <div
-            className="relative rounded-3xl overflow-hidden bg-cover bg-center shadow-xl"
-            style={{ backgroundImage: "url('https://picsum.photos/seed/namibia-spotlight/1400/500')" }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-blue-dark/90 via-brand-blue-dark/70 to-transparent" />
-            <div className="relative z-10 py-12 px-8 sm:px-14 max-w-xl">
-              <span className="section-label mb-3 inline-block bg-white/20 text-white border border-white/30">
-                Our Home Turf
-              </span>
-              <h2 className="font-display font-bold text-3xl sm:text-4xl text-white leading-tight mb-3">
-                Namibia — Explore Africa's<br />
-                <span className="text-brand-orange-light">Best-Kept Secret</span>
-              </h2>
-              <p className="text-white/80 text-sm sm:text-base leading-relaxed mb-6">
-                Based in Windhoek, we are Namibia insiders. From Etosha's floodlit waterholes to the towering dunes of Sossusvlei and the shipwreck-strewn Skeleton Coast — we know every track, camp, and hidden gem.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <Link to="/destinations" className="btn-primary">
-                  Explore Namibia
-                </Link>
-                <Link to="/tours" className="btn-outline">
-                  Namibia Tours
-                </Link>
+          <Reveal>
+            <div
+              className="relative rounded-3xl overflow-hidden bg-cover bg-center shadow-xl"
+              style={{ backgroundImage: "url('https://picsum.photos/seed/namibia-spotlight/1400/500')" }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-brand-blue-dark/90 via-brand-blue-dark/70 to-transparent" />
+              <div className="relative z-10 py-12 px-8 sm:px-14 max-w-xl">
+                <span className="section-label mb-3 inline-block bg-white/20 text-white border border-white/30">
+                  Our Home Turf
+                </span>
+                <h2 className="font-display font-bold text-3xl sm:text-4xl text-white leading-tight mb-3">
+                  Namibia — Explore Africa's<br />
+                  <span className="text-brand-orange-light">Best-Kept Secret</span>
+                </h2>
+                <p className="text-white/80 text-sm sm:text-base leading-relaxed mb-6">
+                  Based in Windhoek, we are Namibia insiders. From Etosha's floodlit waterholes to the towering dunes of Sossusvlei and the shipwreck-strewn Skeleton Coast — we know every track, camp, and hidden gem.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <Link to="/destinations" className="btn-primary">
+                    Explore Namibia
+                  </Link>
+                  <Link to="/tours" className="btn-outline">
+                    Namibia Tours
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* 4. Featured Destinations */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
-          <SectionHeading
-            label="Top Destinations"
-            title="Namibia, Dubai & Beyond"
-            subtitle="From Etosha's wildlife-rich plains to Dubai's gleaming skyline and the world's most iconic landscapes — Adventure Journeys takes you there."
-          />
+          <Reveal>
+            <SectionHeading
+              label="Top Destinations"
+              title="Namibia, Dubai & Beyond"
+              subtitle="From Etosha's wildlife-rich plains to Dubai's gleaming skyline and the world's most iconic landscapes — Adventure Journeys takes you there."
+            />
+          </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.05 }}
+          >
             {featured.map((dest) => (
-              <DestinationCard key={dest.id} destination={dest} featured />
+              <motion.div key={dest.id} variants={revealUp}>
+                <DestinationCard destination={dest} featured />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
-          <div className="text-center">
+          <Reveal className="text-center">
             <Link to="/destinations" className="btn-outline-blue">
               View All Destinations
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
             </Link>
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* 4. Stats banner */}
+      {/* 5. Stats banner */}
       <section
         className="relative py-20 bg-cover bg-center overflow-hidden"
         style={{ backgroundImage: "url('https://picsum.photos/seed/stats-bg/1920/600')" }}
       >
         <div className="absolute inset-0 bg-brand-blue-dark/85" />
-        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
+        <motion.div
+          className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8"
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               { value: 'Est. 2025', label: 'Founded in Namibia', icon: '🏆' },
@@ -168,19 +222,19 @@ export default function Home() {
               { value: '85+',    label: 'Destinations Covered',icon: '🌍' },
               { value: '98%',    label: 'Satisfaction Rate',   icon: '⭐' },
             ].map(({ value, label, icon }) => (
-              <div key={label} className="text-white">
+              <motion.div key={label} variants={revealUp} className="text-white">
                 <div className="text-4xl mb-2">{icon}</div>
                 <div className="font-display font-bold text-4xl sm:text-5xl mb-1">{value}</div>
                 <div className="text-sm text-white/70 tracking-wide">{label}</div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </section>
 
-      {/* 5. CTA – Tour packages */}
+      {/* 6. CTA – Tour packages */}
       <section className="py-20 sm:py-28 bg-brand-cream">
-        <div className="max-w-5xl mx-auto px-5 sm:px-8 text-center">
+        <Reveal className="max-w-5xl mx-auto px-5 sm:px-8 text-center">
           <span className="section-label mb-3 inline-block">Curated Packages</span>
           <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-slate-800 mb-5">
             Discover Our Signature<br />
@@ -195,26 +249,34 @@ export default function Home() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
           </Link>
-        </div>
+        </Reveal>
       </section>
 
-      {/* 6. Testimonials */}
+      {/* 7. Testimonials */}
       <section className="py-20 sm:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
-          <SectionHeading
-            label="Traveller Stories"
-            title="What Our Guests Say"
-            subtitle="Real journeys, real experiences — told by the people who lived them."
-          />
+          <Reveal>
+            <SectionHeading
+              label="Traveller Stories"
+              title="What Our Guests Say"
+              subtitle="Real journeys, real experiences — told by the people who lived them."
+            />
+          </Reveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.1 }}
+          >
             {testimonials.map(({ quote, name, location, image }) => (
-              <div
+              <motion.div
                 key={name}
+                variants={revealUp}
                 className="bg-brand-sand-light rounded-2xl p-7 border border-brand-sand
                            hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
               >
-                {/* Stars */}
                 <div className="flex gap-0.5 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <svg key={i} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
@@ -230,19 +292,19 @@ export default function Home() {
                     <div className="text-xs text-slate-400">{location}</div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* 7. Final CTA */}
+      {/* 8. Final CTA */}
       <section
         className="relative py-24 bg-cover bg-center overflow-hidden"
         style={{ backgroundImage: "url('https://picsum.photos/seed/cta-final/1920/700')" }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-brand-orange-dark/80 to-brand-blue-dark/80" />
-        <div className="relative z-10 max-w-3xl mx-auto text-center px-5">
+        <Reveal className="relative z-10 max-w-3xl mx-auto text-center px-5">
           <h2 className="font-display font-bold text-4xl sm:text-5xl text-white text-shadow mb-4">
             Ready for Your Next Adventure?
           </h2>
@@ -252,7 +314,7 @@ export default function Home() {
           <Link to="/contact" className="btn-primary text-base px-10 py-4">
             Start Planning Today
           </Link>
-        </div>
+        </Reveal>
       </section>
     </>
   )
