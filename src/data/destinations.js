@@ -3,7 +3,7 @@
  * Namibian destinations are listed first as the company's home-market priority,
  * followed by Dubai and international destinations.
  * All prices are in Namibian Dollars (NAD).
- * Images sourced from picsum.photos using consistent seed strings.
+ * Images sourced from Unsplash (specific photo IDs, 800×560, cropped).
  */
 export const destinations = [
 
@@ -14,7 +14,7 @@ export const destinations = [
     tagline: "Namibia's Wildlife Crown",
     description:
       "One of Africa's great safari destinations — a vast salt pan surrounded by savanna and waterhole-studded bush, teeming with lions, elephants, black rhino, and hundreds of bird species.",
-    image: 'https://picsum.photos/seed/etosha-wildlife/800/560',
+    image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&h=560&fit=crop&q=80',
     price: 33_000,
     currency: 'NAD',
     badge: 'Top Pick',
@@ -28,7 +28,7 @@ export const destinations = [
     tagline: 'Dunes Touching the Sky',
     description:
       "The rust-red dunes of Sossusvlei rank among the tallest in the world. At Dead Vlei, ancient camel-thorn trees stand bleached white against apricot dunes and a cobalt sky — utterly unforgettable.",
-    image: 'https://picsum.photos/seed/sossusvlei-dunes/800/560',
+    image: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=800&h=560&fit=crop&q=80',
     price: 29_500,
     currency: 'NAD',
     badge: 'Iconic',
@@ -42,7 +42,7 @@ export const destinations = [
     tagline: 'The Wildest Shore on Earth',
     description:
       "Fog-shrouded dunes cascade into the cold Atlantic, littered with shipwrecks and whale bones. The Skeleton Coast is raw, remote, and breathtakingly dramatic — a true wilderness frontier.",
-    image: 'https://picsum.photos/seed/skeleton-coast-namibia/800/560',
+    image: 'https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?w=800&h=560&fit=crop&q=80',
     price: 39_500,
     currency: 'NAD',
     badge: 'Remote',
@@ -56,7 +56,7 @@ export const destinations = [
     tagline: 'Dunes Meet the Ocean',
     description:
       'Where Namib Desert dunes of over 100 metres plunge directly into the cold Benguela lagoon, creating one of the most surreal and photogenic landscapes on the African continent.',
-    image: 'https://picsum.photos/seed/sandwich-harbour/800/560',
+    image: 'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=800&h=560&fit=crop&q=80',
     price: 17_500,
     currency: 'NAD',
     badge: 'Day Trip',
@@ -70,7 +70,7 @@ export const destinations = [
     tagline: "Africa's Grand Canyon",
     description:
       "The second-largest canyon in the world stretches 160 km through southern Namibia, plunging 550 metres deep. The classic five-day hiking trail is one of Africa's most rewarding adventures.",
-    image: 'https://picsum.photos/seed/fish-river-canyon/800/560',
+    image: 'https://images.unsplash.com/photo-1578894381163-e72c17f2d45f?w=800&h=560&fit=crop&q=80',
     price: 19_900,
     currency: 'NAD',
     badge: 'Adventure',
@@ -84,7 +84,7 @@ export const destinations = [
     tagline: 'Power of the Kunene',
     description:
       "In full flood, the Kunene River thunders 120 metres over a 700-metre-wide ledge at Ruacana — one of southern Africa's most powerful waterfalls, set in remote northern Namibia near the Angolan border.",
-    image: 'https://picsum.photos/seed/ruacana-falls/800/560',
+    image: 'https://images.unsplash.com/photo-1504109586057-7a2ae83d1338?w=800&h=560&fit=crop&q=80',
     price: 22_500,
     currency: 'NAD',
     badge: 'Hidden Gem',
@@ -98,7 +98,7 @@ export const destinations = [
     tagline: 'A Million Seals & Counting',
     description:
       "Home to one of the world's largest Cape fur seal colonies — up to 200,000 seals gather here year-round. A raw, sensory, and utterly unique coastal wildlife experience on the Atlantic shore.",
-    image: 'https://picsum.photos/seed/cape-cross-seals/800/560',
+    image: 'https://images.unsplash.com/photo-1562601579-599dec994e61?w=800&h=560&fit=crop&q=80',
     price: 13_500,
     currency: 'NAD',
     badge: 'Wildlife',
@@ -114,7 +114,7 @@ export const destinations = [
     tagline: 'City of the Future',
     description:
       'Soaring above desert sands, Dubai blends record-breaking architecture, world-class shopping, and ancient souks with Michelin-starred dining and year-round sunshine. Luxury, reimagined.',
-    image: 'https://picsum.photos/seed/dubai-skyline/800/560',
+    image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&h=560&fit=crop&q=80',
     price: 44_900,
     currency: 'NAD',
     badge: 'Luxury',
@@ -130,7 +130,7 @@ export const destinations = [
     tagline: 'Island of the Gods',
     description:
       'Emerald rice terraces, ancient temples, and volcanic peaks wrapped in warm tropical air. Bali rewards every traveller who seeks spirit and beauty in equal measure.',
-    image: 'https://picsum.photos/seed/bali-island/800/560',
+    image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&h=560&fit=crop&q=80',
     price: 23_500,
     currency: 'NAD',
     badge: 'Best Seller',
@@ -144,7 +144,7 @@ export const destinations = [
     tagline: 'Aegean Dream',
     description:
       'Whitewashed clifftop villages tumbling toward a sunlit caldera, legendary sunsets, and volcanic black-sand beaches make Santorini the jewel of the Cyclades.',
-    image: 'https://picsum.photos/seed/santorini-greece/800/560',
+    image: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800&h=560&fit=crop&q=80',
     price: 39_500,
     currency: 'NAD',
     badge: 'Romance',
@@ -158,7 +158,7 @@ export const destinations = [
     tagline: 'Lost City of the Inca',
     description:
       "Perched above the Sacred Valley in a swath of perpetual cloud, Machu Picchu is one of humanity's greatest architectural achievements — and most dramatic vistas.",
-    image: 'https://picsum.photos/seed/machu-picchu/800/560',
+    image: 'https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=800&h=560&fit=crop&q=80',
     price: 47_500,
     currency: 'NAD',
     badge: 'Heritage',
@@ -172,7 +172,7 @@ export const destinations = [
     tagline: 'The Great Migration',
     description:
       'Witness the raw drama of the animal kingdom on the endless golden plains of the Serengeti, where over 1.5 million wildebeest thunder across the horizon each year.',
-    image: 'https://picsum.photos/seed/serengeti-safari/800/560',
+    image: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&h=560&fit=crop&q=80',
     price: 70_000,
     currency: 'NAD',
     badge: 'Safari',
@@ -186,7 +186,7 @@ export const destinations = [
     tagline: 'Ocean Paradise',
     description:
       'Overwater bungalows floating above turquoise lagoons, pristine coral reefs teeming with marine life, and the most extraordinary sunrises on Earth.',
-    image: 'https://picsum.photos/seed/maldives-ocean/800/560',
+    image: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&h=560&fit=crop&q=80',
     price: 59_500,
     currency: 'NAD',
     badge: 'Luxury',
@@ -200,7 +200,7 @@ export const destinations = [
     tagline: 'Land of Zen',
     description:
       'Ancient temple complexes, geisha districts, and forests of vermillion torii gates — Kyoto is the soul of traditional Japan, distilled into one extraordinary city.',
-    image: 'https://picsum.photos/seed/kyoto-japan/800/560',
+    image: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&h=560&fit=crop&q=80',
     price: 44_900,
     currency: 'NAD',
     badge: 'Cultural',
@@ -214,7 +214,7 @@ export const destinations = [
     tagline: 'End of the Earth',
     description:
       'Jagged granite spires, cascading glaciers, and windswept steppe stretching to the horizon. Patagonia is the ultimate frontier for the bold and adventurous spirit.',
-    image: 'https://picsum.photos/seed/patagonia-chile/800/560',
+    image: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&h=560&fit=crop&q=80',
     price: 55_500,
     currency: 'NAD',
     badge: 'Wild',
@@ -228,7 +228,7 @@ export const destinations = [
     tagline: 'Land of Fire & Ice',
     description:
       'Chase the Northern Lights across volcanic landscapes, soak in geothermal hot springs, and marvel at waterfalls that plunge straight into the North Atlantic.',
-    image: 'https://picsum.photos/seed/iceland-aurora/800/560',
+    image: 'https://images.unsplash.com/photo-1476610182048-b716b8518aae?w=800&h=560&fit=crop&q=80',
     price: 52_000,
     currency: 'NAD',
     badge: 'Unique',
