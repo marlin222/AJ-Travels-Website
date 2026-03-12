@@ -26,9 +26,10 @@ export default {
         body:    ['Inter', 'system-ui', 'sans-serif'],
       },
       animation: {
-        'fade-in':  'fadeIn 0.7s ease-out both',
-        'slide-up': 'slideUp 0.7s ease-out both',
-        'zoom-in':  'zoomIn 0.5s ease-out both',
+        'fade-in':    'fadeIn 0.7s ease-out both',
+        'slide-up':   'slideUp 0.7s ease-out both',
+        'zoom-in':    'zoomIn 0.5s ease-out both',
+        'ken-burns':  'kenBurns 22s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -42,6 +43,13 @@ export default {
         zoomIn: {
           '0%':   { opacity: '0', transform: 'scale(0.95)' },
           '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        kenBurns: {
+          '0%':   { transform: 'scale(1.05) translate(0%, 0%)' },
+          '25%':  { transform: 'scale(1.14) translate(-1.5%, 0.8%)' },
+          '50%':  { transform: 'scale(1.10) translate(1.2%, -0.6%)' },
+          '75%':  { transform: 'scale(1.14) translate(-0.5%, 1.2%)' },
+          '100%': { transform: 'scale(1.05) translate(0%, 0%)' },
         },
       },
       backgroundImage: {

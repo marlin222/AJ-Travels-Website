@@ -1,22 +1,61 @@
 /**
  * Inner-page hero banner (shorter than the full-height home hero).
+ *
  * Props:
  *   title      – main heading
  *   subtitle   – supporting text
- *   image      – picsum URL (optional)
- *   imageSeed  – picsum seed string (used if image is not provided)
+ *   video      – video src path (e.g. "/banners/destinations.mp4").
+ *                When provided, behaves exactly like HeroSection — looping
+ *                video with the image/imageSeed as a poster fallback.
+ *   image      – full image URL (optional, overrides imageSeed; also used as
+ *                poster when video is supplied)
+ *   imageSeed  – picsum seed string (used when neither image nor video poster
+ *                is provided)
+ *
+ * Without a video the banner falls back to a Ken Burns animated image.
+ *
+ * VIDEO SETUP
+ * -----------
+ * Drop your .mp4 (and optionally .webm) files in /public/banners/.
+ * Example usage:
+ *   <PageBanner
+ *     title="Destinations"
+ *     video="/banners/destinations.mp4"
+ *     imageSeed="destinations-banner"
+ *   />
+ * Free aerial footage: https://www.pexels.com/search/videos/aerial%20landscape/
  */
-export default function PageBanner({ title, subtitle, imageSeed = 'travel-banner', image }) {
-  const bg = image || `https://picsum.photos/seed/${imageSeed}/1920/600`
+export default function PageBanner({ title, subtitle, imageSeed = 'travel-banner', image, video }) {
+  const poster = image || `https://picsum.photos/seed/${imageSeed}/1920/600`
 
   return (
     <section className="relative flex items-center justify-center h-64 sm:h-80 md:h-96 overflow-hidden pt-20">
-      {/* Background */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url('${bg}')` }}
-      />
-      {/* Overlay */}
+
+      {video ? (
+        /* ── Video background (same as HeroSection) ── */
+        <video
+          className="absolute inset-0 w-full h-full object-cover scale-105"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={poster}
+        >
+          {/* WebM for broader browser support; MP4 as primary */}
+          <source src={video.replace(/\.mp4$/, '.webm')} type="video/webm" />
+          <source src={video} type="video/mp4" />
+        </video>
+      ) : (
+        /* ── Fallback: Ken Burns animated image ── */
+        <img
+          src={poster}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover animate-ken-burns"
+        />
+      )}
+
+      {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-brand-blue-dark/70 to-brand-orange-dark/30" />
 
       {/* Content */}

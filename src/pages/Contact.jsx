@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
+import { useLocation } from 'react-router-dom'
 import PageBanner from '../components/PageBanner'
 
 /* Office / contact info */
@@ -37,20 +38,40 @@ const interests = [
   'Custom / Bespoke',
 ]
 
-const initialForm = {
-  firstName: '',
-  lastName: '',
-  email: '',
-  phone: '',
-  travelDateFrom: '',
-  travelDateTo: '',
-  groupSize: '',
-  budget: '',
-  interest: '',
-  message: '',
+/* Map destination category → travel interest pill */
+const categoryToInterest = {
+  'Namibia':      'African Safari',
+  'East Africa':  'African Safari',
+  'Middle East':  'Luxury Escape',
+  'Europe':       'Cultural Journey',
+  'Americas':     'Adventure Trek',
+  'Asia & Pacific': 'Beach & Island',
 }
 
 export default function Contact() {
+  const { search } = useLocation()
+  const params = useMemo(() => new URLSearchParams(search), [search])
+  const preDestination = params.get('destination') || ''
+  const preCategory    = params.get('category')    || ''
+  const preInterest    = categoryToInterest[preCategory] || ''
+  const preMessage     = preDestination
+    ? `Hi, I'm interested in booking the ${preDestination} package. Please send me a detailed quote and available dates.`
+    : ''
+
+  const initialForm = useMemo(() => ({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    travelDateFrom: '',
+    travelDateTo: '',
+    groupSize: '',
+    budget: '',
+    interest: preInterest,
+    message: preMessage,
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }), []) // intentionally only on mount
+
   const [form,      setForm]      = useState(initialForm)
   const [submitted, setSubmitted] = useState(false)
   const [loading,   setLoading]   = useState(false)
@@ -165,7 +186,7 @@ export default function Contact() {
                       Thank you, <strong>{form.firstName || 'traveller'}</strong>! One of our specialists will reach out within 24 hours to start planning your journey.
                     </p>
                     <button
-                      onClick={() => { setForm(initialForm); setSubmitted(false) }}
+                      onClick={() => { setForm({ firstName: '', lastName: '', email: '', phone: '', travelDateFrom: '', travelDateTo: '', groupSize: '', budget: '', interest: '', message: '' }); setSubmitted(false) }}
                       className="mt-4 btn-outline-blue"
                     >
                       Send Another Enquiry
@@ -173,8 +194,25 @@ export default function Contact() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} noValidate>
-                    <h3 className="font-display font-bold text-2xl text-slate-800 mb-1">Plan Your Journey</h3>
-                    <p className="text-sm text-slate-400 mb-7">Fill in the details below and we'll craft a personalised itinerary just for you.</p>
+                    {/* Destination pre-fill banner */}
+                    {preDestination && (
+                      <div className="flex items-center gap-3 mb-6 p-4 rounded-2xl bg-brand-orange/8 border border-brand-orange/20">
+                        <span className="text-2xl">✈️</span>
+                        <div>
+                          <p className="text-xs font-semibold text-brand-orange uppercase tracking-wider">Booking Enquiry For</p>
+                          <p className="font-display font-bold text-slate-800 text-lg leading-tight">{preDestination}</p>
+                        </div>
+                      </div>
+                    )}
+
+                    <h3 className="font-display font-bold text-2xl text-slate-800 mb-1">
+                      {preDestination ? 'Complete Your Booking' : 'Plan Your Journey'}
+                    </h3>
+                    <p className="text-sm text-slate-400 mb-7">
+                      {preDestination
+                        ? "We've pre-filled your destination. Just complete your details below and we'll send you a quote within 24 hours."
+                        : "Fill in the details below and we'll craft a personalised itinerary just for you."}
+                    </p>
 
                     {/* Name row */}
                     <div className="grid sm:grid-cols-2 gap-4 mb-4">

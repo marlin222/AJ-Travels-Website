@@ -12,7 +12,7 @@ export const tours = [
     subtitle: 'Etosha · Sossusvlei · Skeleton Coast',
     duration: '10 Days / 9 Nights',
     groupSize: '2–10 People',
-    price: 65_500,
+    price: 68_500,
     currency: 'NAD',
     image: 'https://picsum.photos/seed/namibia-safari-tour/1000/650',
     highlights: [
@@ -44,7 +44,7 @@ export const tours = [
     subtitle: 'Sossusvlei · Sandwich Harbour · Fish River Canyon',
     duration: '8 Days / 7 Nights',
     groupSize: '2–8 People',
-    price: 44_900,
+    price: 46_500,
     currency: 'NAD',
     image: 'https://picsum.photos/seed/namibia-desert-canyon/1000/650',
     highlights: [
@@ -76,7 +76,7 @@ export const tours = [
     subtitle: 'Etosha · Cape Cross · Ruacana Falls',
     duration: '7 Days / 6 Nights',
     groupSize: '2–12 People',
-    price: 35_500,
+    price: 36_900,
     currency: 'NAD',
     image: 'https://picsum.photos/seed/namibia-northern/1000/650',
     highlights: [
@@ -109,7 +109,7 @@ export const tours = [
     subtitle: 'UAE — The City of Gold',
     duration: '6 Days / 5 Nights',
     groupSize: '2–20 People',
-    price: 50_500,
+    price: 52_500,
     currency: 'NAD',
     image: 'https://picsum.photos/seed/dubai-luxury/1000/650',
     highlights: [
@@ -143,7 +143,7 @@ export const tours = [
     subtitle: 'Kenya & Tanzania',
     duration: '10 Days / 9 Nights',
     groupSize: '4–12 People',
-    price: 77_500,
+    price: 79_500,
     currency: 'NAD',
     image: 'https://picsum.photos/seed/africa-safari-tour/1000/650',
     highlights: [
@@ -175,7 +175,7 @@ export const tours = [
     subtitle: 'Italy · France · Greece',
     duration: '14 Days / 13 Nights',
     groupSize: '6–16 People',
-    price: 99_000,
+    price: 104_000,
     currency: 'NAD',
     image: 'https://picsum.photos/seed/europe-cultural/1000/650',
     highlights: [
@@ -206,7 +206,7 @@ export const tours = [
     subtitle: 'Thailand · Vietnam · Cambodia',
     duration: '12 Days / 11 Nights',
     groupSize: '2–10 People',
-    price: 70_000,
+    price: 72_500,
     currency: 'NAD',
     image: 'https://picsum.photos/seed/southeast-asia/1000/650',
     highlights: [

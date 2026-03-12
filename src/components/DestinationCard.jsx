@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
  *   featured    – boolean, enlarges card slightly (used on Home page)
  */
 export default function DestinationCard({ destination, featured = false }) {
-  const { name, tagline, description, image, price, currency, badge, badgeColor, category } = destination
+  const { id, name, tagline, description, image, price, currency, badge, badgeColor, category } = destination
 
   return (
     <article className="card group cursor-pointer">
@@ -62,7 +62,7 @@ export default function DestinationCard({ destination, featured = false }) {
 
           {/* Book button */}
           <Link
-            to="/contact"
+            to={`/destinations/${id}`}
             className="shrink-0 inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full
                        bg-brand-orange text-white text-sm font-semibold
                        hover:bg-brand-orange-dark hover:-translate-y-0.5
