@@ -264,7 +264,7 @@ export default function DestinationDetail() {
                     </svg>
                   </Link>
                   <a
-                    href="https://wa.me/27715554779"
+                    href="https://wa.me/264812633473"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full

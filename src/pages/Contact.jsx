@@ -12,12 +12,12 @@ const officeInfo = [
   {
     icon: <PhoneIcon />,
     label: 'Phone',
-    lines: ['+264 81 263 3473', '+971 555 477 931 (WhatsApp)'],
+    lines: ['+264 81 263 3473'],
   },
   {
     icon: <MailIcon />,
     label: 'Email',
-    lines: ['adventurejourneys25@gmail.com', 'bookings@adventurejourneys.co'],
+    lines: ['adventurejourneys25@gmail.com'],
   },
   {
     icon: <ClockIcon />,
