@@ -219,7 +219,7 @@ export default function Home() {
             {[
               { value: 'Est. 2025', label: 'Founded in Namibia', icon: '🏆' },
               { value: '50,000+',label: 'Happy Travellers',    icon: '😊' },
-              { value: '85+',    label: 'Destinations Covered',icon: '🌍' },
+              { value: '25+',    label: 'Destinations Covered',icon: '🌍' },
               { value: '98%',    label: 'Satisfaction Rate',   icon: '⭐' },
             ].map(({ value, label, icon }) => (
               <motion.div key={label} variants={revealUp} className="text-white">

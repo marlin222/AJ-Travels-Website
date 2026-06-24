@@ -132,8 +132,7 @@ export default function HeroSection() {
         >
           {[
             { value: 'Est. 2025', label: 'Namibia-Based' },
-            { value: '50k+', label: 'Happy Travellers' },
-            { value: '85+', label: 'Destinations' },
+            { value: '25+', label: 'Destinations' },
             { value: '98%', label: 'Satisfaction Rate' },
           ].map(({ value, label }) => (
             <div key={label} className="text-center">

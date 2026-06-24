@@ -32,7 +32,7 @@ const badges = [
   { value: '2025',     label: 'Year Founded',         icon: '📅' },
   { value: 'Swakop',   label: 'Namibia-Based',        icon: '📍' },
   { value: '50,000+',  label: 'Happy Travellers',     icon: '😊' },
-  { value: '85+',      label: 'Destinations',         icon: '🌍' },
+  { value: '25+',      label: 'Destinations',         icon: '🌍' },
   { value: '98%',      label: 'Satisfaction Rate',    icon: '⭐' },
   { value: 'HTAN',     label: 'HTAN Member',          icon: '✅' },
 ]

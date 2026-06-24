@@ -13,10 +13,10 @@ const quickLinks = [
 const destinations = [
   'Etosha National Park',
   'Sossusvlei & Dead Vlei',
-  'Skeleton Coast',
-  'Sandwich Harbour',
-  'Fish River Canyon',
   'Dubai, UAE',
+  'Cape Town, South Africa',
+  'Zanzibar, Tanzania',
+  'Bazaruto Archipelago, Mozambique',
 ]
 
 export default function Footer() {
@@ -144,11 +144,11 @@ export default function Footer() {
           <div className="mt-6 space-y-2 text-sm text-slate-400">
             <p className="flex items-center gap-2">
               <PhoneIcon className="w-4 h-4 text-brand-orange shrink-0" />
-              +264 64 462 256
+              +264 81 263 3473
             </p>
             <p className="flex items-center gap-2">
               <MailIcon className="w-4 h-4 text-brand-orange shrink-0" />
-              vdmerwe1@iway.na
+              adventurejourneys25@gmail.com
             </p>
           </div>
         </div>
