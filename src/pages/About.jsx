@@ -170,7 +170,7 @@ export default function About() {
             subtitle="Explorers, storytellers, and logistics wizards — united by an unshakeable passion for exceptional travel."
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
             {team.map(({ id, name, role, bio, image, social }) => (
               <div key={id} className="group text-center">
                 {/* Avatar */}
