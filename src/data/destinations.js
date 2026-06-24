@@ -1,3 +1,11 @@
+import etoshaImg        from '../../images/etosha.jpg'
+import deadvleiImg      from '../../images/deadvlei.jpg'
+import skeletonImg      from '../../images/skeleton.jpg'
+import sandwichImg      from '../../images/sandwich_harbor.jpg'
+import fishriverImg     from '../../images/fishriver.jpg'
+import ruacanaImg       from '../../images/ruacana.jpg'
+import caperossImg      from '../../images/cape_Cross.jpg'
+
 /**
  * Destination data for the Destinations page, Home featured section,
  * and individual DestinationDetail pages.
@@ -21,7 +29,7 @@ export const destinations = [
     tagline: "Namibia's Wildlife Crown",
     description:
       "One of Africa's great safari destinations — a vast salt pan surrounded by savanna and waterhole-studded bush, teeming with lions, elephants, black rhino, and hundreds of bird species.",
-    image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&h=560&fit=crop&q=80',
+    image: etoshaImg,
     price: 26_500,
     currency: 'NAD',
     badge: 'Top Pick',
@@ -62,7 +70,7 @@ export const destinations = [
     tagline: 'Dunes Touching the Sky',
     description:
       "The rust-red dunes of Sossusvlei rank among the tallest in the world. At Dead Vlei, ancient camel-thorn trees stand bleached white against apricot dunes and a cobalt sky — utterly unforgettable.",
-    image: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=800&h=560&fit=crop&q=80',
+    image: deadvleiImg,
     price: 24_500,
     currency: 'NAD',
     badge: 'Iconic',
@@ -102,7 +110,7 @@ export const destinations = [
     tagline: 'The Wildest Shore on Earth',
     description:
       "Fog-shrouded dunes cascade into the cold Atlantic, littered with shipwrecks and whale bones. The Skeleton Coast is raw, remote, and breathtakingly dramatic — a true wilderness frontier.",
-    image: 'https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?w=800&h=560&fit=crop&q=80',
+    image: skeletonImg,
     price: 39_500,
     currency: 'NAD',
     badge: 'Remote',
@@ -142,7 +150,7 @@ export const destinations = [
     tagline: 'Dunes Meet the Ocean',
     description:
       'Where Namib Desert dunes of over 100 metres plunge directly into the cold Benguela lagoon, creating one of the most surreal and photogenic landscapes on the African continent.',
-    image: 'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=800&h=560&fit=crop&q=80',
+    image: sandwichImg,
     price: 8_900,
     currency: 'NAD',
     badge: 'Overnight',
@@ -180,7 +188,7 @@ export const destinations = [
     tagline: "Africa's Grand Canyon",
     description:
       "The second-largest canyon in the world stretches 160 km through southern Namibia, plunging 550 metres deep. The classic five-day hiking trail is one of Africa's most rewarding adventures.",
-    image: 'https://images.unsplash.com/photo-1578894381163-e72c17f2d45f?w=800&h=560&fit=crop&q=80',
+    image: fishriverImg,
     price: 16_500,
     currency: 'NAD',
     badge: 'Adventure',
@@ -220,7 +228,7 @@ export const destinations = [
     tagline: 'Power of the Kunene',
     description:
       "In full flood, the Kunene River thunders 120 metres over a 700-metre-wide ledge at Ruacana — one of southern Africa's most powerful waterfalls, set in remote northern Namibia near the Angolan border.",
-    image: 'https://images.unsplash.com/photo-1504109586057-7a2ae83d1338?w=800&h=560&fit=crop&q=80',
+    image: ruacanaImg,
     price: 19_900,
     currency: 'NAD',
     badge: 'Hidden Gem',
@@ -261,7 +269,7 @@ export const destinations = [
     tagline: 'A Million Seals & Counting',
     description:
       "Home to one of the world's largest Cape fur seal colonies — up to 200,000 seals gather here year-round. A raw, sensory, and utterly unique coastal wildlife experience on the Atlantic shore.",
-    image: 'https://images.unsplash.com/photo-1562601579-599dec994e61?w=800&h=560&fit=crop&q=80',
+    image: caperossImg,
     price: 6_900,
     currency: 'NAD',
     badge: 'Wildlife',
