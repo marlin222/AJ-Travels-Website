@@ -5,6 +5,7 @@ import sandwichImg      from '../../images/sandwich_harbor.jpg'
 import fishriverImg     from '../../images/fishriver.jpg'
 import ruacanaImg       from '../../images/ruacana.jpg'
 import caperossImg      from '../../images/cape_Cross.jpg'
+import angolaImg        from '../../images/angola.jpeg'
 
 /**
  * Destination data for the Destinations page, Home featured section,
@@ -492,7 +493,7 @@ export const destinations = [
     tagline: "Africa's Undiscovered Giant",
     description:
       "From the thundering Kalandula Falls — one of Africa's largest waterfalls — to the surreal Namibe Desert coast and the vibrant capital Luanda, Angola is Africa's last great undiscovered travel frontier.",
-    image: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&h=560&fit=crop&q=80',
+    image: angolaImg,
     price: 44_000,
     currency: 'NAD',
     badge: 'Off the Beaten Track',
