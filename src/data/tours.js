@@ -14,7 +14,7 @@ export const tours = [
     groupSize: '2–10 People',
     price: 68_500,
     currency: 'NAD',
-    image: 'https://picsum.photos/seed/namibia-safari-tour/1000/650',
+    image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1000&h=650&fit=crop&q=80',
     highlights: [
       'Sunrise game drives at Etosha floodlit waterholes',
       'Climb Big Daddy dune at Sossusvlei',
@@ -46,7 +46,7 @@ export const tours = [
     groupSize: '2–8 People',
     price: 46_500,
     currency: 'NAD',
-    image: 'https://picsum.photos/seed/namibia-desert-canyon/1000/650',
+    image: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=1000&h=650&fit=crop&q=80',
     highlights: [
       'Private sunrise balloon flight over the Namib dunes',
       '4×4 adventure into Sandwich Harbour with expert guide',
@@ -78,7 +78,7 @@ export const tours = [
     groupSize: '2–12 People',
     price: 36_900,
     currency: 'NAD',
-    image: 'https://picsum.photos/seed/namibia-northern/1000/650',
+    image: 'https://images.unsplash.com/photo-1562601579-599dec994e61?w=1000&h=650&fit=crop&q=80',
     highlights: [
       'Floodlit waterhole game viewing at Etosha night hide',
       "Encounter Namibia's rare desert-adapted elephants",
@@ -111,7 +111,7 @@ export const tours = [
     groupSize: '2–20 People',
     price: 52_500,
     currency: 'NAD',
-    image: 'https://picsum.photos/seed/dubai-luxury/1000/650',
+    image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1000&h=650&fit=crop&q=80',
     highlights: [
       'Private Burj Khalifa At the Top observation deck visit',
       'Desert safari with dune bashing & Bedouin camp dinner',
@@ -145,7 +145,7 @@ export const tours = [
     groupSize: '4–12 People',
     price: 79_500,
     currency: 'NAD',
-    image: 'https://picsum.photos/seed/africa-safari-tour/1000/650',
+    image: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1000&h=650&fit=crop&q=80',
     highlights: [
       'Witness the Great Migration in the Masai Mara',
       'Game drives at dusk and dawn in Amboseli',
@@ -177,7 +177,7 @@ export const tours = [
     groupSize: '6–16 People',
     price: 104_000,
     currency: 'NAD',
-    image: 'https://picsum.photos/seed/europe-cultural/1000/650',
+    image: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=1000&h=650&fit=crop&q=80',
     highlights: [
       'Private after-hours access to the Colosseum',
       'Truffle-hunting experience in Tuscany',
@@ -208,7 +208,7 @@ export const tours = [
     groupSize: '2–10 People',
     price: 72_500,
     currency: 'NAD',
-    image: 'https://picsum.photos/seed/southeast-asia/1000/650',
+    image: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1000&h=650&fit=crop&q=80',
     highlights: [
       'Sunrise at Angkor Wat with a private guide',
       'Ha Long Bay overnight cruise on a junk boat',
