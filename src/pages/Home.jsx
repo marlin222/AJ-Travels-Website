@@ -4,6 +4,7 @@ import HeroSection from '../components/HeroSection'
 import SectionHeading from '../components/SectionHeading'
 import DestinationCard from '../components/DestinationCard'
 import { destinations } from '../data/destinations'
+import windhoekBg from '../../images/windhoek_clean3.png'
 
 /* Featured destinations – first 6 */
 const featured = destinations.slice(0, 6)
@@ -138,7 +139,7 @@ export default function Home() {
           <Reveal>
             <div
               className="relative rounded-3xl overflow-hidden bg-cover bg-center shadow-xl"
-              style={{ backgroundImage: "url('https://picsum.photos/seed/namibia-spotlight/1400/500')" }}
+              style={{ backgroundImage: `url(${windhoekBg})` }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-brand-blue-dark/90 via-brand-blue-dark/70 to-transparent" />
               <div className="relative z-10 py-12 px-8 sm:px-14 max-w-xl">
