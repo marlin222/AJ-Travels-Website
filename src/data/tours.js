@@ -81,7 +81,7 @@ export const tours = [
     groupSize: '2–12 People',
     price: 36_900,
     currency: 'NAD',
-    image: 'https://images.unsplash.com/photo-1562601579-599dec994e61?w=1000&h=650&fit=crop&q=80',
+    image: ruacanaImg,
     highlights: [
       'Floodlit waterhole game viewing at Etosha night hide',
       "Encounter Namibia's rare desert-adapted elephants",
