@@ -3,6 +3,9 @@
  * Namibian tours listed first, followed by Dubai and international packages.
  * All prices are in Namibian Dollars (NAD).
  */
+import deadvleiImg from '../../images/deadvlei.jpg'
+import ruacanaImg from '../../images/ruacana.jpg'
+
 export const tours = [
 
   /* ── NAMIBIA TOURS ── */
@@ -46,7 +49,7 @@ export const tours = [
     groupSize: '2–8 People',
     price: 46_500,
     currency: 'NAD',
-    image: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=1000&h=650&fit=crop&q=80',
+    image: deadvleiImg,
     highlights: [
       'Private sunrise balloon flight over the Namib dunes',
       '4×4 adventure into Sandwich Harbour with expert guide',
