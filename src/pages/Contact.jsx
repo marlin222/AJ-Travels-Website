@@ -74,7 +74,6 @@ export default function Contact() {
 
   const [form,      setForm]      = useState(initialForm)
   const [submitted, setSubmitted] = useState(false)
-  const [loading,   setLoading]   = useState(false)
   const [errors,    setErrors]    = useState({})
 
   const validate = () => {
@@ -93,15 +92,41 @@ export default function Contact() {
     if (errors[name]) setErrors((prev) => ({ ...prev, [name]: '' }))
   }
 
-  const handleSubmit = async (e) => {
+  /* Build a human-readable summary of the enquiry for the email/WhatsApp message */
+  const buildSummary = () => {
+    const lines = [
+      `Name: ${form.firstName} ${form.lastName}`,
+      `Email: ${form.email}`,
+      form.phone && `Phone: ${form.phone}`,
+      (form.travelDateFrom || form.travelDateTo) &&
+        `Travel Dates: ${form.travelDateFrom || '—'} to ${form.travelDateTo || '—'}`,
+      form.groupSize && `Group Size: ${form.groupSize}`,
+      form.budget && `Budget per Person: ${form.budget}`,
+      form.interest && `Travel Interest: ${form.interest}`,
+      preDestination && `Destination: ${preDestination}`,
+      '',
+      'Message:',
+      form.message,
+    ].filter(Boolean)
+    return lines.join('\n')
+  }
+
+  const handleSubmit = (e) => {
     e.preventDefault()
     const errs = validate()
     if (Object.keys(errs).length) { setErrors(errs); return }
 
-    setLoading(true)
-    // Simulate API call delay
-    await new Promise((r) => setTimeout(r, 1200))
-    setLoading(false)
+    const summary = buildSummary()
+    const subject = `New Travel Enquiry — ${form.firstName} ${form.lastName}${preDestination ? ` (${preDestination})` : ''}`
+
+    const mailtoUrl = `mailto:adventurejourneys25@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(summary)}`
+    const waUrl = `https://wa.me/264812633473?text=${encodeURIComponent(`New Travel Enquiry\n\n${summary}`)}`
+
+    // Open WhatsApp in a new tab and the email client in this tab —
+    // both must fire synchronously within the click handler or popup blockers kill them.
+    window.open(waUrl, '_blank', 'noopener,noreferrer')
+    window.location.href = mailtoUrl
+
     setSubmitted(true)
   }
 
@@ -181,9 +206,9 @@ export default function Contact() {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <h3 className="font-display font-bold text-3xl text-slate-800">Message Sent!</h3>
+                    <h3 className="font-display font-bold text-3xl text-slate-800">Almost There!</h3>
                     <p className="text-slate-500 max-w-sm">
-                      Thank you, <strong>{form.firstName || 'traveller'}</strong>! One of our specialists will reach out within 24 hours to start planning your journey.
+                      Thank you, <strong>{form.firstName || 'traveller'}</strong>! We've opened your email app and WhatsApp with your enquiry ready to go — just hit <strong>Send</strong> in each to reach us.
                     </p>
                     <button
                       onClick={() => { setForm({ firstName: '', lastName: '', email: '', phone: '', travelDateFrom: '', travelDateTo: '', groupSize: '', budget: '', interest: '', message: '' }); setSubmitted(false) }}
@@ -321,29 +346,16 @@ export default function Contact() {
                     {/* Submit */}
                     <button
                       type="submit"
-                      disabled={loading}
-                      className="btn-primary w-full justify-center text-base py-4 disabled:opacity-70"
+                      className="btn-primary w-full justify-center text-base py-4"
                     >
-                      {loading ? (
-                        <>
-                          <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
-                          </svg>
-                          Sending…
-                        </>
-                      ) : (
-                        <>
-                          Send My Enquiry
-                          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                          </svg>
-                        </>
-                      )}
+                      Send My Enquiry
+                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                      </svg>
                     </button>
 
                     <p className="text-center text-xs text-slate-400 mt-4">
-                      We typically respond within 24 hours. No spam, ever.
+                      This opens your email app and WhatsApp with your enquiry pre-filled. We typically respond within 24 hours.
                     </p>
                   </form>
                 )}
