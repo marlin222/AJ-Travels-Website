@@ -203,36 +203,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. Stats banner */}
-      <section
-        className="relative py-20 bg-cover bg-center overflow-hidden"
-        style={{ backgroundImage: "url('https://picsum.photos/seed/stats-bg/1920/600')" }}
-      >
-        <div className="absolute inset-0 bg-brand-blue-dark/85" />
-        <motion.div
-          className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8"
-          variants={stagger}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { value: 'Est. 2025', label: 'Founded in Namibia', icon: '🏆' },
-              { value: '50,000+',label: 'Happy Travellers',    icon: '😊' },
-              { value: '25+',    label: 'Destinations Covered',icon: '🌍' },
-              { value: '98%',    label: 'Satisfaction Rate',   icon: '⭐' },
-            ].map(({ value, label, icon }) => (
-              <motion.div key={label} variants={revealUp} className="text-white">
-                <div className="text-4xl mb-2">{icon}</div>
-                <div className="font-display font-bold text-4xl sm:text-5xl mb-1">{value}</div>
-                <div className="text-sm text-white/70 tracking-wide">{label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </section>
-
       {/* 6. CTA – Tour packages */}
       <section className="py-20 sm:py-28 bg-brand-cream">
         <Reveal className="max-w-5xl mx-auto px-5 sm:px-8 text-center">

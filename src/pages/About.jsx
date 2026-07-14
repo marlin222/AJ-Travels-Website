@@ -31,19 +31,14 @@ const values = [
 const badges = [
   { value: '2025',     label: 'Year Founded',         icon: '📅' },
   { value: 'Swakop',   label: 'Namibia-Based',        icon: '📍' },
-  { value: '50,000+',  label: 'Happy Travellers',     icon: '😊' },
   { value: '25+',      label: 'Destinations',         icon: '🌍' },
-  { value: '98%',      label: 'Satisfaction Rate',    icon: '⭐' },
-  { value: 'HTAN',     label: 'HTAN Member',          icon: '✅' },
 ]
 
 /* Awards / accreditations */
 const accreditations = [
   'Hospitality & Tourism Association of Namibia (HTAN)',
   'Travelife Sustainability Certified',
-  'IATA Accredited Travel Agency',
   'Namibia Tourism Board Registered',
-  'World Travel Awards – Africa Nominee 2024',
 ]
 
 export default function About() {
@@ -122,7 +117,7 @@ export default function About() {
       {/* ── Trust badges ── */}
       <section className="py-16 bg-brand-blue-dark">
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 text-center text-white">
+          <div className="grid grid-cols-3 gap-6 text-center text-white">
             {badges.map(({ value, label, icon }) => (
               <div key={label} className="group">
                 <div className="text-3xl mb-2">{icon}</div>
