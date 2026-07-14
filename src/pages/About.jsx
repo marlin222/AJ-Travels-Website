@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom'
 import PageBanner from '../components/PageBanner'
 import SectionHeading from '../components/SectionHeading'
 import { team } from '../data/team'
+import arabImg from '../../images/Arab.jpg'
+import jetskiImg from '../../images/Jetski.jpg'
+import palmImg from '../../images/Palm.jpg'
 
 /* Core values */
 const values = [
@@ -88,17 +91,17 @@ export default function About() {
             {/* Image collage */}
             <div className="relative grid grid-cols-2 gap-3 h-[460px]">
               <img
-                src="https://picsum.photos/seed/about-1/500/600"
+                src={arabImg}
                 alt="Adventure travel"
                 className="col-span-1 row-span-2 w-full h-full object-cover rounded-2xl shadow-lg"
               />
               <img
-                src="https://picsum.photos/seed/about-2/500/280"
+                src={jetskiImg}
                 alt="Team in the field"
                 className="w-full h-full object-cover rounded-2xl shadow-lg"
               />
               <img
-                src="https://picsum.photos/seed/about-3/500/280"
+                src={palmImg}
                 alt="Local community"
                 className="w-full h-full object-cover rounded-2xl shadow-lg"
               />
@@ -106,8 +109,7 @@ export default function About() {
               {/* Floating badge */}
               <div className="absolute -bottom-4 -left-4 bg-brand-orange text-white rounded-2xl
                               px-5 py-4 shadow-xl shadow-orange-400/30 text-center">
-                <div className="font-display font-bold text-3xl">15+</div>
-                <div className="text-xs font-medium opacity-90">Years crafting<br />unforgettable journeys</div>
+                <div className="text-xs font-medium opacity-90">crafting<br />unforgettable journeys</div>
               </div>
             </div>
           </div>
