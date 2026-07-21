@@ -158,6 +158,25 @@ export default function About() {
         </div>
       </section>
 
+      {/* ── Leave a review ── */}
+      <section className="py-16 bg-white border-t border-slate-100">
+        <div className="max-w-3xl mx-auto px-5 sm:px-8 text-center">
+          <span className="section-label mb-3 inline-block">Share Your Story</span>
+          <h2 className="font-display font-bold text-3xl sm:text-4xl text-slate-800 mb-3">
+            Been on a Journey With Us?
+          </h2>
+          <p className="text-slate-500 leading-relaxed mb-7 max-w-xl mx-auto">
+            We'd love to hear how it went. Your feedback helps fellow travellers plan their own adventure and helps us keep getting better.
+          </p>
+          <a href="/client-review-form.html" target="_blank" rel="noopener noreferrer" className="btn-primary">
+            Leave a Review
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+        </div>
+      </section>
+
       {/* ── Team ── */}
       <section className="py-20 sm:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-5 sm:px-8">

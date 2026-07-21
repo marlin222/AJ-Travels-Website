@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Share Your Journey — Client Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Karla:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#232B33;        /* Namib night sky */
+    --dune:#9C4A1F;         /* deep dune red */
+    --dune-dark:#7C3714;
+    --sand:#FBF6EE;         /* sun-bleached page */
+    --sand-deep:#EFE5D5;    /* field background */
+    --acacia:#5C6B4A;       /* success green */
+    --line:#D8CBB6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+  body{
+    font-family:'Karla',sans-serif;
+    background:var(--sand);
+    color:var(--night);
+    line-height:1.6;
+  }
+  .wrap{max-width:680px;margin:0 auto;padding:0 20px 80px}
+
+  /* Header with dune-ridge silhouette */
+  header{
+    text-align:center;
+    padding:64px 20px 0;
+  }
+  .eyebrow{
+    font-size:13px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--dune);font-weight:700;
+  }
+  h1{
+    font-family:'Marcellus',serif;
+    font-size:clamp(30px,6vw,44px);
+    font-weight:400;
+    margin:10px 0 14px;
+  }
+  .intro{max-width:520px;margin:0 auto;color:#4A5560;font-size:17px}
+  .dunes{display:block;width:100%;height:70px;margin-top:36px}
+
+  /* Card */
+  form{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:40px 36px;
+    margin-top:-8px;
+    box-shadow:0 18px 40px -28px rgba(35,43,51,.35);
+  }
+  fieldset{border:none;margin-bottom:34px}
+  legend{
+    font-family:'Marcellus',serif;
+    font-size:21px;
+    margin-bottom:16px;
+    width:100%;
+    border-bottom:1px solid var(--line);
+    padding-bottom:8px;
+  }
+  .field{margin-bottom:20px}
+  label{display:block;font-weight:700;font-size:15px;margin-bottom:6px}
+  .hint{font-weight:400;color:#77808A;font-size:13.5px;display:block;margin-top:2px}
+  input[type=text],input[type=email],select,textarea{
+    width:100%;
+    font:inherit;
+    color:var(--night);
+    background:var(--sand-deep);
+    border:1.5px solid transparent;
+    border-radius:8px;
+    padding:12px 14px;
+  }
+  textarea{min-height:110px;resize:vertical}
+  input:focus,select:focus,textarea:focus{
+    outline:none;border-color:var(--dune);background:#fff;
+  }
+  input:focus-visible,select:focus-visible,textarea:focus-visible,
+  button:focus-visible,.stars label:has(:focus-visible){
+    outline:3px solid var(--dune);outline-offset:2px;
+  }
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:560px){.row{grid-template-columns:1fr}}
+
+  /* Star rating */
+  .stars{
+    display:flex;flex-direction:row-reverse;justify-content:flex-end;gap:6px;
+  }
+  .stars input{position:absolute;opacity:0;width:1px;height:1px}
+  .stars label{
+    cursor:pointer;font-size:34px;line-height:1;color:#D9CDBA;
+    transition:color .12s ease, transform .12s ease;
+    margin:0;
+  }
+  .stars label:hover,
+  .stars label:hover ~ label,
+  .stars input:checked ~ label{color:var(--dune)}
+  .stars label:hover{transform:scale(1.12)}
+  .rating-caption{font-size:13.5px;color:#77808A;margin-top:4px}
+
+  /* Radio pills */
+  .pills{display:flex;gap:10px;flex-wrap:wrap}
+  .pills input{position:absolute;opacity:0;width:1px;height:1px}
+  .pills label{
+    cursor:pointer;font-weight:500;font-size:15px;margin:0;
+    padding:9px 18px;border-radius:999px;
+    border:1.5px solid var(--line);background:#fff;
+    transition:all .12s ease;
+  }
+  .pills input:checked + label{
+    background:var(--night);border-color:var(--night);color:var(--sand);
+  }
+  .pills label:has(input:focus-visible){outline:3px solid var(--dune);outline-offset:2px}
+
+  /* Checkbox */
+  .consent{display:flex;gap:12px;align-items:flex-start}
+  .consent input{width:20px;height:20px;margin-top:3px;accent-color:var(--dune);flex-shrink:0}
+  .consent label{font-weight:400;font-size:14.5px;margin:0;color:#4A5560}
+
+  button[type=submit]{
+    font:inherit;font-weight:700;font-size:17px;
+    width:100%;
+    background:var(--dune);color:#fff;
+    border:none;border-radius:10px;
+    padding:16px;
+    cursor:pointer;
+    letter-spacing:.02em;
+    transition:background .15s ease;
+  }
+  button[type=submit]:hover{background:var(--dune-dark)}
+  .footnote{text-align:center;font-size:13px;color:#8B9199;margin-top:18px}
+</style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">We'd love to hear from you</p>
+  <h1>How was your journey?</h1>
+  <p class="intro">Your honest feedback takes two minutes and helps fellow travellers — from Windhoek to the wider world — plan the trip of a lifetime.</p>
+  <svg class="dunes" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,100 L0,72 C150,40 260,88 420,60 C560,36 640,78 790,55 C930,34 1040,80 1200,58 L1200,100 Z" fill="#EADFCB"/>
+    <path d="M0,100 L0,86 C200,64 340,96 520,76 C700,58 820,92 1000,72 C1090,62 1150,78 1200,74 L1200,100 Z" fill="#DECFB4"/>
+  </svg>
+</header>
+
+<div class="wrap">
+  <!-- ▼ SETUP: replace YOUR@EMAIL.COM below with your agency email address.
+       Submissions will arrive in that inbox via the free FormSubmit service.
+       The first submission triggers a one-time confirmation email to you. -->
+  <form action="https://formsubmit.co/adventurejourneys25@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="New client review received">
+    <input type="hidden" name="_captcha" value="true">
+    <input type="hidden" name="_template" value="table">
+
+    <fieldset>
+      <legend>About you</legend>
+      <div class="row">
+        <div class="field">
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="Name" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="Email" required autocomplete="email">
+        </div>
+      </div>
+      <div class="field">
+        <label for="country">Where are you travelling from?
+          <span class="hint">City and country — e.g. Swakopmund, Namibia or Munich, Germany</span>
+        </label>
+        <input type="text" id="country" name="Travelling from">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Your trip</legend>
+      <div class="row">
+        <div class="field">
+          <label for="package">Trip or package taken</label>
+          <input type="text" id="package" name="Trip taken" placeholder="e.g. 7-day Sossusvlei &amp; Etosha Safari" required>
+        </div>
+        <div class="field">
+          <label for="when">When did you travel?</label>
+          <input type="text" id="when" name="Travel dates" placeholder="e.g. May 2026">
+        </div>
+      </div>
+      <div class="field">
+        <label>Type of trip</label>
+        <div class="pills">
+          <span><input type="radio" id="t1" name="Trip type" value="Holiday / Leisure"><label for="t1">Holiday</label></span>
+          <span><input type="radio" id="t2" name="Trip type" value="Business"><label for="t2">Business</label></span>
+          <span><input type="radio" id="t3" name="Trip type" value="Honeymoon / Celebration"><label for="t3">Celebration</label></span>
+          <span><input type="radio" id="t4" name="Trip type" value="Family"><label for="t4">Family</label></span>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Your experience</legend>
+      <div class="field">
+        <label id="rating-label">Overall rating</label>
+        <div class="stars" role="radiogroup" aria-labelledby="rating-label">
+          <input type="radio" id="s5" name="Rating" value="5 / 5" required><label for="s5" title="Excellent">★</label>
+          <input type="radio" id="s4" name="Rating" value="4 / 5"><label for="s4" title="Very good">★</label>
+          <input type="radio" id="s3" name="Rating" value="3 / 5"><label for="s3" title="Good">★</label>
+          <input type="radio" id="s2" name="Rating" value="2 / 5"><label for="s2" title="Fair">★</label>
+          <input type="radio" id="s1" name="Rating" value="1 / 5"><label for="s1" title="Poor">★</label>
+        </div>
+        <p class="rating-caption">1 = poor · 5 = excellent</p>
+      </div>
+      <div class="field">
+        <label for="loved">What did you love most?
+          <span class="hint">A place, a moment, a person who made it special</span>
+        </label>
+        <textarea id="loved" name="Highlights" required></textarea>
+      </div>
+      <div class="field">
+        <label for="improve">What could we do better?
+          <span class="hint">Honest answers help us improve — nothing is too small</span>
+        </label>
+        <textarea id="improve" name="Improvements"></textarea>
+      </div>
+      <div class="field">
+        <label>Would you recommend us to friends and family?</label>
+        <div class="pills">
+          <span><input type="radio" id="r1" name="Would recommend" value="Yes, definitely" required><label for="r1">Yes, definitely</label></span>
+          <span><input type="radio" id="r2" name="Would recommend" value="Maybe"><label for="r2">Maybe</label></span>
+          <span><input type="radio" id="r3" name="Would recommend" value="No"><label for="r3">No</label></span>
+        </div>
+      </div>
+      <div class="field consent">
+        <input type="checkbox" id="consent" name="Permission to publish" value="Yes">
+        <label for="consent">You may publish my review and first name on your website and social media.</label>
+      </div>
+    </fieldset>
+
+    <button type="submit">Send my review</button>
+    <p class="footnote">Thank you for travelling with us. Your details are only used to follow up on your feedback.</p>
+  </form>
+</div>
+
+</body>
+</html>
