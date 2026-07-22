@@ -89,7 +89,7 @@ export default function About() {
             </div>
 
             {/* Image collage */}
-            <div className="relative grid grid-cols-2 gap-3 h-[460px]">
+            <div className="relative grid grid-cols-2 grid-rows-2 gap-3 h-[460px] overflow-hidden">
               <img
                 src={arabImg}
                 alt="Adventure travel"
