@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
  *   featured    – boolean, enlarges card slightly (used on Home page)
  */
 export default function DestinationCard({ destination, featured = false }) {
-  const { id, name, tagline, description, image, price, currency, badge, badgeColor, category } = destination
+  const { id, name, tagline, description, image, badge, badgeColor, category } = destination
 
   return (
     <article className="card group cursor-pointer">
@@ -53,10 +53,9 @@ export default function DestinationCard({ destination, featured = false }) {
         <div className="flex items-center justify-between gap-3">
           {/* Pricing */}
           <div>
-            <span className="text-xs text-slate-400 font-medium">From</span>
-            <div className="font-display font-bold text-2xl text-brand-blue leading-none">
-              N${price.toLocaleString()}
-              <span className="text-xs font-normal text-slate-400 ml-1">{currency} / person</span>
+            <span className="text-xs text-slate-400 font-medium">Pricing</span>
+            <div className="font-display font-bold text-lg text-brand-blue leading-none">
+              Tailored to You
             </div>
           </div>
 

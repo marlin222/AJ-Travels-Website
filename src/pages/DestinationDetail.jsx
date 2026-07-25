@@ -27,7 +27,7 @@ export default function DestinationDetail() {
   }
 
   const {
-    name, tagline, description, image, price, currency,
+    name, tagline, description, image,
     badge, badgeColor, category, country,
     duration, bestTimeToVisit, weather, difficulty,
     highlights = [], includes = [], itinerary = [],
@@ -235,11 +235,11 @@ export default function DestinationDetail() {
               {/* Pricing & CTA card */}
               <div className="rounded-2xl border border-slate-200 overflow-hidden shadow-lg shadow-slate-100">
                 <div className="bg-gradient-to-br from-brand-blue to-slate-800 p-6 text-white">
-                  <div className="text-sm text-white/70 mb-1">Starting from</div>
-                  <div className="font-display font-bold text-4xl leading-none">
-                    N${price.toLocaleString()}
+                  <div className="text-sm text-white/70 mb-1">Pricing</div>
+                  <div className="font-display font-bold text-3xl leading-tight">
+                    Tailored to You
                   </div>
-                  <div className="text-sm text-white/70 mt-1">{currency} per person</div>
+                  <div className="text-sm text-white/70 mt-1">Contact us for a personalised quote</div>
                   {duration && (
                     <div className="mt-3 text-sm text-white/90 flex items-center gap-1.5">
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -276,7 +276,7 @@ export default function DestinationDetail() {
                     </svg>
                     WhatsApp Us
                   </a>
-                  <p className="text-xs text-slate-400 text-center">Price is per person, sharing. Contact us for solo or custom pricing.</p>
+                  <p className="text-xs text-slate-400 text-center">Every itinerary is tailored to your budget, dates, and group size.</p>
                 </div>
               </div>
 
@@ -366,9 +366,9 @@ export default function DestinationDetail() {
                     </div>
                     <div className="p-4 flex items-center justify-between">
                       <div>
-                        <span className="text-xs text-slate-400">From</span>
-                        <div className="font-display font-bold text-lg text-brand-blue leading-none">
-                          N${dest.price.toLocaleString()}
+                        <span className="text-xs text-slate-400">Pricing</span>
+                        <div className="font-display font-bold text-sm text-brand-blue leading-none">
+                          Tailored to You
                         </div>
                       </div>
                       <span className="text-brand-orange text-sm font-semibold group-hover:translate-x-1 transition-transform duration-200">

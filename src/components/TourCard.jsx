@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
  *   tour – object from src/data/tours.js
  */
 export default function TourCard({ tour }) {
-  const { name, subtitle, duration, groupSize, price, currency, image,
+  const { name, subtitle, duration, groupSize, image,
           highlights, itinerary, includes, tag, tagColor, rating, reviews } = tour
 
   return (
@@ -100,10 +100,9 @@ export default function TourCard({ tour }) {
         {/* Pricing + CTA */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
-            <span className="text-xs text-slate-400">Price per person</span>
-            <div className="font-display font-bold text-3xl text-brand-blue leading-none">
-              N${price.toLocaleString()}
-              <span className="text-sm font-normal text-slate-400 ml-1">{currency}</span>
+            <span className="text-xs text-slate-400">Pricing</span>
+            <div className="font-display font-bold text-2xl text-brand-blue leading-none">
+              Tailored to You
             </div>
           </div>
           <div className="flex gap-3">
