@@ -1,6 +1,6 @@
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { destinations } from '../data/destinations'
+import { tours } from '../data/tours'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -11,37 +11,31 @@ const fadeUp = {
   }),
 }
 
-export default function DestinationDetail() {
+export default function TourDetail() {
   const { id } = useParams()
   const navigate = useNavigate()
-  const destination = destinations.find((d) => d.id === Number(id))
+  const tour = tours.find((t) => t.id === Number(id))
 
-  if (!destination) {
+  if (!tour) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-6 text-center px-4">
-        <h1 className="font-display text-3xl font-bold text-slate-800">Destination Not Found</h1>
-        <p className="text-slate-500">We couldn't find that destination. Try browsing all destinations.</p>
-        <Link to="/destinations" className="btn-primary">View All Destinations</Link>
+        <h1 className="font-display text-3xl font-bold text-slate-800">Tour Not Found</h1>
+        <p className="text-slate-500">We couldn't find that package. Try browsing all tours.</p>
+        <Link to="/tours" className="btn-primary">View All Tours</Link>
       </div>
     )
   }
 
   const {
-    name, tagline, description, image,
-    badge, badgeColor, category, country,
-    duration, bestTimeToVisit, weather, difficulty,
+    name, subtitle, image, duration, groupSize,
     highlights = [], includes = [], itinerary = [],
-  } = destination
+    tag, tagColor, rating, reviews, region,
+  } = tour
 
-  // Related destinations (same category, excluding current)
-  const related = destinations
-    .filter((d) => d.category === category && d.id !== destination.id)
+  // Related tours (same region, excluding current)
+  const related = tours
+    .filter((t) => t.region === region && t.id !== tour.id)
     .slice(0, 3)
-
-  const difficultyColor =
-    difficulty?.toLowerCase().includes('easy') ? 'text-emerald-600 bg-emerald-50' :
-    difficulty?.toLowerCase().includes('moderate') ? 'text-amber-600 bg-amber-50' :
-    'text-rose-600 bg-rose-50'
 
   return (
     <div className="min-h-screen bg-white">
@@ -73,24 +67,26 @@ export default function DestinationDetail() {
         {/* Hero text */}
         <div className="absolute bottom-0 inset-x-0 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
           <div className="flex flex-wrap items-center gap-2 mb-3">
-            {badge && (
-              <span className={`px-3 py-1 rounded-full text-xs font-bold tracking-wide text-white ${badgeColor}`}>
-                {badge}
+            {tag && (
+              <span className={`px-3 py-1 rounded-full text-xs font-bold tracking-wide text-white ${tagColor}`}>
+                ★ {tag}
               </span>
             )}
-            <span className="px-3 py-1 rounded-full text-xs font-medium bg-white/20 backdrop-blur-sm text-white border border-white/30">
-              {category}
-            </span>
-            {difficulty && (
+            {region && (
               <span className="px-3 py-1 rounded-full text-xs font-medium bg-white/20 backdrop-blur-sm text-white border border-white/30">
-                {difficulty}
+                {region}
+              </span>
+            )}
+            {rating && (
+              <span className="px-3 py-1 rounded-full text-xs font-medium bg-white/20 backdrop-blur-sm text-white border border-white/30">
+                ★ {rating} ({reviews} reviews)
               </span>
             )}
           </div>
           <h1 className="font-display font-bold text-4xl sm:text-5xl text-white leading-tight mb-2">
             {name}
           </h1>
-          <p className="text-white/80 text-lg italic">{tagline}</p>
+          <p className="text-white/80 text-lg italic">{subtitle}</p>
         </div>
       </div>
 
@@ -104,7 +100,9 @@ export default function DestinationDetail() {
             {/* Overview */}
             <motion.section variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
               <h2 className="font-display font-bold text-2xl text-slate-800 mb-4">Overview</h2>
-              <p className="text-slate-600 leading-relaxed text-lg">{description}</p>
+              <p className="text-slate-600 leading-relaxed text-lg">
+                {subtitle} — a {duration.toLowerCase()} journey through {region}, thoughtfully paced for small groups and crafted around what you actually want to see.
+              </p>
 
               <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {duration && (
@@ -114,25 +112,25 @@ export default function DestinationDetail() {
                     <div className="text-sm font-semibold text-slate-800 mt-1">{duration}</div>
                   </div>
                 )}
-                {country && (
+                {groupSize && (
+                  <div className="bg-slate-50 rounded-xl p-4 text-center">
+                    <div className="text-2xl mb-1">👥</div>
+                    <div className="text-xs text-slate-500 font-medium uppercase tracking-wide">Group Size</div>
+                    <div className="text-sm font-semibold text-slate-800 mt-1">{groupSize}</div>
+                  </div>
+                )}
+                {region && (
                   <div className="bg-slate-50 rounded-xl p-4 text-center">
                     <div className="text-2xl mb-1">📍</div>
-                    <div className="text-xs text-slate-500 font-medium uppercase tracking-wide">Country</div>
-                    <div className="text-sm font-semibold text-slate-800 mt-1">{country}</div>
+                    <div className="text-xs text-slate-500 font-medium uppercase tracking-wide">Region</div>
+                    <div className="text-sm font-semibold text-slate-800 mt-1">{region}</div>
                   </div>
                 )}
-                {difficulty && (
+                {rating && (
                   <div className="bg-slate-50 rounded-xl p-4 text-center">
-                    <div className="text-2xl mb-1">🥾</div>
-                    <div className="text-xs text-slate-500 font-medium uppercase tracking-wide">Difficulty</div>
-                    <div className={`text-sm font-semibold mt-1 px-2 py-0.5 rounded-full inline-block ${difficultyColor}`}>{difficulty}</div>
-                  </div>
-                )}
-                {bestTimeToVisit && (
-                  <div className="bg-slate-50 rounded-xl p-4 text-center">
-                    <div className="text-2xl mb-1">🌤️</div>
-                    <div className="text-xs text-slate-500 font-medium uppercase tracking-wide">Best Time</div>
-                    <div className="text-sm font-semibold text-slate-800 mt-1 line-clamp-2">{bestTimeToVisit.split('(')[0].trim()}</div>
+                    <div className="text-2xl mb-1">⭐</div>
+                    <div className="text-xs text-slate-500 font-medium uppercase tracking-wide">Rating</div>
+                    <div className="text-sm font-semibold text-slate-800 mt-1">{rating} ({reviews})</div>
                   </div>
                 )}
               </div>
@@ -199,33 +197,6 @@ export default function DestinationDetail() {
                 </div>
               </motion.section>
             )}
-
-            {/* Best Time & Weather */}
-            {(bestTimeToVisit || weather) && (
-              <motion.section variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
-                <h2 className="font-display font-bold text-2xl text-slate-800 mb-5">When to Go</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {bestTimeToVisit && (
-                    <div className="p-5 rounded-xl bg-emerald-50 border border-emerald-100">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="text-lg">🌿</span>
-                        <h3 className="font-semibold text-emerald-800 text-sm">Best Time to Visit</h3>
-                      </div>
-                      <p className="text-sm text-emerald-700 leading-relaxed">{bestTimeToVisit}</p>
-                    </div>
-                  )}
-                  {weather && (
-                    <div className="p-5 rounded-xl bg-sky-50 border border-sky-100">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="text-lg">🌡️</span>
-                        <h3 className="font-semibold text-sky-800 text-sm">Climate</h3>
-                      </div>
-                      <p className="text-sm text-sky-700 leading-relaxed">{weather}</p>
-                    </div>
-                  )}
-                </div>
-              </motion.section>
-            )}
           </div>
 
           {/* ── Right Column (sticky sidebar) ── */}
@@ -251,14 +222,14 @@ export default function DestinationDetail() {
                 </div>
                 <div className="p-5 space-y-3">
                   <Link
-                    to={`/contact?destination=${encodeURIComponent(name)}&category=${encodeURIComponent(category)}`}
+                    to={`/contact?destination=${encodeURIComponent(name)}&category=${encodeURIComponent(region)}`}
                     className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full
                                bg-brand-orange text-white font-semibold text-sm
                                hover:bg-brand-orange-dark hover:-translate-y-0.5
                                shadow-md shadow-orange-400/25 hover:shadow-orange-400/35
                                transition-all duration-200"
                   >
-                    Book This Destination
+                    Book This Tour
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                     </svg>
@@ -315,7 +286,7 @@ export default function DestinationDetail() {
           </div>
         </div>
 
-        {/* ── Related Destinations ── */}
+        {/* ── Related Tours ── */}
         {related.length > 0 && (
           <motion.section
             variants={fadeUp}
@@ -326,16 +297,16 @@ export default function DestinationDetail() {
           >
             <div className="flex items-center justify-between mb-8">
               <h2 className="font-display font-bold text-2xl text-slate-800">
-                More in {category}
+                More in {region}
               </h2>
-              <Link to="/destinations" className="text-brand-orange text-sm font-semibold hover:underline">
+              <Link to="/tours" className="text-brand-orange text-sm font-semibold hover:underline">
                 View All →
               </Link>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {related.map((dest, i) => (
+              {related.map((t, i) => (
                 <motion.div
-                  key={dest.id}
+                  key={t.id}
                   custom={i}
                   variants={fadeUp}
                   initial="hidden"
@@ -343,25 +314,25 @@ export default function DestinationDetail() {
                   viewport={{ once: true }}
                 >
                   <Link
-                    to={`/destinations/${dest.id}`}
+                    to={`/tours/${t.id}`}
                     className="group block rounded-2xl overflow-hidden border border-slate-100 hover:shadow-lg hover:shadow-slate-200 transition-shadow duration-300"
                   >
                     <div className="relative h-44 overflow-hidden">
                       <img
-                        src={dest.image}
-                        alt={dest.name}
+                        src={t.image}
+                        alt={t.name}
                         loading="lazy"
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                      {dest.badge && (
-                        <span className={`absolute top-3 left-3 px-2.5 py-0.5 rounded-full text-[10px] font-bold text-white ${dest.badgeColor}`}>
-                          {dest.badge}
+                      {t.tag && (
+                        <span className={`absolute top-3 left-3 px-2.5 py-0.5 rounded-full text-[10px] font-bold text-white ${t.tagColor}`}>
+                          {t.tag}
                         </span>
                       )}
                       <div className="absolute bottom-0 inset-x-0 p-4">
-                        <h3 className="font-display font-bold text-white text-base">{dest.name}</h3>
-                        <p className="text-white/75 text-xs italic">{dest.tagline}</p>
+                        <h3 className="font-display font-bold text-white text-base">{t.name}</h3>
+                        <p className="text-white/75 text-xs italic">{t.subtitle}</p>
                       </div>
                     </div>
                     <div className="p-4 flex items-center justify-between">

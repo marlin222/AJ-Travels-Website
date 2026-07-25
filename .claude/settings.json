@@ -6,7 +6,9 @@
       "Bash(sed -i '' -E '/^[[:space:]]*price: [0-9_]+,$/d; /^[[:space:]]*currency: '\"'\"'NAD'\"'\"',$/d' src/data/destinations.js src/data/tours.js)",
       "Bash(echo \"exit: $?\")",
       "Bash(node --experimental-vm-modules -e ' *)",
-      "Bash(grep -v \"^$\")"
+      "Bash(grep -v \"^$\")",
+      "Bash(curl -s http://localhost:5173/src/components/TourCard.jsx)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:5173/src/pages/TourDetail.jsx)"
     ]
   }
 }

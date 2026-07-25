@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom'
 
 /**
- * Detailed tour package card.
+ * Compact tour package card. Full itinerary, includes, and pricing
+ * live on the Tour Detail page — this is a teaser that links there.
  * Props:
  *   tour – object from src/data/tours.js
  */
 export default function TourCard({ tour }) {
-  const { name, subtitle, duration, groupSize, image,
-          highlights, itinerary, includes, tag, tagColor, rating, reviews } = tour
+  const { id, name, subtitle, duration, groupSize, image,
+          highlights, tag, tagColor, rating, reviews } = tour
 
   return (
     <article className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
@@ -46,77 +47,39 @@ export default function TourCard({ tour }) {
       <div className="p-6 sm:p-8">
 
         {/* Meta pills */}
-        <div className="flex flex-wrap gap-3 mb-6">
+        <div className="flex flex-wrap gap-3 mb-5">
           <MetaPill icon={<ClockIcon />} text={duration} />
           <MetaPill icon={<UsersIcon />} text={groupSize} />
-          <MetaPill icon={<CheckIcon />} text={`${includes.length} items included`} />
         </div>
 
-        {/* Two-column layout: highlights + itinerary */}
-        <div className="grid sm:grid-cols-2 gap-6 mb-6">
-
-          {/* Highlights */}
-          <div>
-            <h4 className="text-sm font-bold text-slate-700 uppercase tracking-widest mb-3">Highlights</h4>
-            <ul className="space-y-2">
-              {highlights.slice(0, 4).map((h, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
-                  <span className="mt-0.5 w-4 h-4 rounded-full bg-brand-sand flex items-center justify-center shrink-0">
-                    <svg className="w-2.5 h-2.5 text-brand-orange" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </span>
-                  {h}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Itinerary */}
-          <div>
-            <h4 className="text-sm font-bold text-slate-700 uppercase tracking-widest mb-3">Itinerary</h4>
-            <ul className="space-y-2">
-              {itinerary.slice(0, 4).map((item, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
-                  <span className="shrink-0 px-2 py-0.5 rounded bg-brand-blue/10 text-brand-blue text-xs font-semibold">
-                    Day {item.day}
-                  </span>
-                  <span className="font-medium text-slate-700">{item.title}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Includes */}
-        <div className="flex flex-wrap gap-2 mb-6 pt-5 border-t border-slate-100">
-          {includes.map((inc) => (
-            <span key={inc} className="px-3 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-600">
-              {inc}
-            </span>
+        {/* Highlights teaser */}
+        <ul className="space-y-2 mb-6">
+          {highlights.slice(0, 3).map((h, i) => (
+            <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
+              <span className="mt-0.5 w-4 h-4 rounded-full bg-brand-sand flex items-center justify-center shrink-0">
+                <svg className="w-2.5 h-2.5 text-brand-orange" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+              </span>
+              {h}
+            </li>
           ))}
-        </div>
+        </ul>
 
-        {/* Pricing + CTA */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div>
-            <span className="text-xs text-slate-400">Pricing</span>
-            <div className="font-display font-bold text-2xl text-brand-blue leading-none">
-              Tailored to You
-            </div>
-          </div>
-          <div className="flex gap-3">
-            <Link to="/contact" className="btn-outline-blue">
-              Request Info
-            </Link>
-            <Link to="/contact" className="btn-primary">
-              Book This Tour
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
-            </Link>
-          </div>
-        </div>
+        {/* CTA */}
+        <Link
+          to={`/tours/${id}`}
+          className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full
+                     bg-brand-orange text-white font-semibold text-sm
+                     hover:bg-brand-orange-dark hover:-translate-y-0.5
+                     shadow-md shadow-orange-400/20 hover:shadow-orange-400/30
+                     transition-all duration-200"
+        >
+          Request Info
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
+        </Link>
       </div>
     </article>
   )
@@ -156,14 +119,6 @@ function UsersIcon() {
       <circle cx="9" cy="7" r="4" />
       <path d="M23 21v-2a4 4 0 00-3-3.87" />
       <path d="M16 3.13a4 4 0 010 7.75" />
-    </svg>
-  )
-}
-
-function CheckIcon() {
-  return (
-    <svg className="w-4 h-4 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <polyline points="20 6 9 17 4 12" />
     </svg>
   )
 }

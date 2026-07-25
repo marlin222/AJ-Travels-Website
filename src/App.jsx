@@ -9,6 +9,7 @@ import Tours from './pages/Tours'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import DestinationDetail from './pages/DestinationDetail'
+import TourDetail from './pages/TourDetail'
 
 // Scroll to top on every route change
 function ScrollToTop() {
@@ -47,6 +48,7 @@ export default function App() {
             <Route path="/about"        element={<About />} />
             <Route path="/contact"      element={<Contact />} />
             <Route path="/destinations/:id" element={<DestinationDetail />} />
+            <Route path="/tours/:id"        element={<TourDetail />} />
             {/* Fallback → Home */}
             <Route path="*"             element={<Home />} />
           </Routes>
