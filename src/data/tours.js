@@ -1,7 +1,7 @@
 /**
  * Tour package data for the Tours & Packages page.
  * Namibian tours listed first, followed by Dubai and international packages.
- * All prices are in Namibian Dollars (NAD).
+ * Pricing is tailored per enquiry, not listed — see Contact page.
  */
 import deadvleiImg from '../../images/deadvlei.jpg'
 import ruacanaImg from '../../images/ruacana.jpg'
@@ -15,8 +15,6 @@ export const tours = [
     subtitle: 'Etosha · Sossusvlei · Skeleton Coast',
     duration: '10 Days / 9 Nights',
     groupSize: '2–10 People',
-    price: 68_500,
-    currency: 'NAD',
     image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1000&h=650&fit=crop&q=80',
     highlights: [
       'Sunrise game drives at Etosha floodlit waterholes',
@@ -47,8 +45,6 @@ export const tours = [
     subtitle: 'Sossusvlei · Sandwich Harbour · Fish River Canyon',
     duration: '8 Days / 7 Nights',
     groupSize: '2–8 People',
-    price: 46_500,
-    currency: 'NAD',
     image: deadvleiImg,
     highlights: [
       'Private sunrise balloon flight over the Namib dunes',
@@ -79,8 +75,6 @@ export const tours = [
     subtitle: 'Etosha · Cape Cross · Ruacana Falls',
     duration: '7 Days / 6 Nights',
     groupSize: '2–12 People',
-    price: 36_900,
-    currency: 'NAD',
     image: ruacanaImg,
     highlights: [
       'Floodlit waterhole game viewing at Etosha night hide',
@@ -112,8 +106,6 @@ export const tours = [
     subtitle: 'UAE — The City of Gold',
     duration: '6 Days / 5 Nights',
     groupSize: '2–20 People',
-    price: 52_500,
-    currency: 'NAD',
     image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1000&h=650&fit=crop&q=80',
     highlights: [
       'Private Burj Khalifa At the Top observation deck visit',
@@ -146,8 +138,6 @@ export const tours = [
     subtitle: 'Kenya & Tanzania',
     duration: '10 Days / 9 Nights',
     groupSize: '4–12 People',
-    price: 79_500,
-    currency: 'NAD',
     image: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1000&h=650&fit=crop&q=80',
     highlights: [
       'Witness the Great Migration in the Masai Mara',
@@ -178,8 +168,6 @@ export const tours = [
     subtitle: 'Italy · France · Greece',
     duration: '14 Days / 13 Nights',
     groupSize: '6–16 People',
-    price: 104_000,
-    currency: 'NAD',
     image: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=1000&h=650&fit=crop&q=80',
     highlights: [
       'Private after-hours access to the Colosseum',
@@ -209,8 +197,6 @@ export const tours = [
     subtitle: 'Thailand · Vietnam · Cambodia',
     duration: '12 Days / 11 Nights',
     groupSize: '2–10 People',
-    price: 72_500,
-    currency: 'NAD',
     image: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1000&h=650&fit=crop&q=80',
     highlights: [
       'Sunrise at Angkor Wat with a private guide',

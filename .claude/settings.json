@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "Bash(pkill -f vite)",
-      "Bash(rm -f /tmp/about_before.png)"
+      "Bash(rm -f /tmp/about_before.png)",
+      "Bash(sed -i '' -E '/^[[:space:]]*price: [0-9_]+,$/d; /^[[:space:]]*currency: '\"'\"'NAD'\"'\"',$/d' src/data/destinations.js src/data/tours.js)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(node --experimental-vm-modules -e ' *)",
+      "Bash(grep -v \"^$\")"
     ]
   }
 }

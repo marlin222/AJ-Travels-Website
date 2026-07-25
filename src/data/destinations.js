@@ -11,14 +11,9 @@ import angolaImg        from '../../images/angola.jpeg'
  * Destination data for the Destinations page, Home featured section,
  * and individual DestinationDetail pages.
  *
- * Prices updated March 2026 based on market research:
- *  - Namibia packages: per-person, sharing, accommodation + guided tours + park fees
- *  - International packages: return economy flights ex-Windhoek included
- *  - Exchange reference: 1 USD ≈ 18.5 NAD | 1 EUR ≈ 20.5 NAD
- *
  * Namibian destinations are listed first as the company's home-market priority,
  * followed by Dubai and international destinations.
- * All prices are in Namibian Dollars (NAD).
+ * Pricing is tailored per enquiry, not listed — see Contact page.
  * Images sourced from Unsplash (specific photo IDs, 800×560, cropped).
  */
 export const destinations = [
@@ -31,8 +26,6 @@ export const destinations = [
     description:
       "One of Africa's great safari destinations — a vast salt pan surrounded by savanna and waterhole-studded bush, teeming with lions, elephants, black rhino, and hundreds of bird species.",
     image: etoshaImg,
-    price: 26_500,
-    currency: 'NAD',
     badge: 'Top Pick',
     badgeColor: 'bg-brand-orange',
     category: 'Namibia',
@@ -72,8 +65,6 @@ export const destinations = [
     description:
       "The rust-red dunes of Sossusvlei rank among the tallest in the world. At Dead Vlei, ancient camel-thorn trees stand bleached white against apricot dunes and a cobalt sky — utterly unforgettable.",
     image: deadvleiImg,
-    price: 24_500,
-    currency: 'NAD',
     badge: 'Iconic',
     badgeColor: 'bg-amber-600',
     category: 'Namibia',
@@ -112,8 +103,6 @@ export const destinations = [
     description:
       "Fog-shrouded dunes cascade into the cold Atlantic, littered with shipwrecks and whale bones. The Skeleton Coast is raw, remote, and breathtakingly dramatic — a true wilderness frontier.",
     image: skeletonImg,
-    price: 39_500,
-    currency: 'NAD',
     badge: 'Remote',
     badgeColor: 'bg-slate-600',
     category: 'Namibia',
@@ -152,8 +141,6 @@ export const destinations = [
     description:
       'Where Namib Desert dunes of over 100 metres plunge directly into the cold Benguela lagoon, creating one of the most surreal and photogenic landscapes on the African continent.',
     image: sandwichImg,
-    price: 8_900,
-    currency: 'NAD',
     badge: 'Overnight',
     badgeColor: 'bg-teal-600',
     category: 'Namibia',
@@ -190,8 +177,6 @@ export const destinations = [
     description:
       "The second-largest canyon in the world stretches 160 km through southern Namibia, plunging 550 metres deep. The classic five-day hiking trail is one of Africa's most rewarding adventures.",
     image: fishriverImg,
-    price: 16_500,
-    currency: 'NAD',
     badge: 'Adventure',
     badgeColor: 'bg-emerald-700',
     category: 'Namibia',
@@ -230,8 +215,6 @@ export const destinations = [
     description:
       "In full flood, the Kunene River thunders 120 metres over a 700-metre-wide ledge at Ruacana — one of southern Africa's most powerful waterfalls, set in remote northern Namibia near the Angolan border.",
     image: ruacanaImg,
-    price: 19_900,
-    currency: 'NAD',
     badge: 'Hidden Gem',
     badgeColor: 'bg-blue-600',
     category: 'Namibia',
@@ -271,8 +254,6 @@ export const destinations = [
     description:
       "Home to one of the world's largest Cape fur seal colonies — up to 200,000 seals gather here year-round. A raw, sensory, and utterly unique coastal wildlife experience on the Atlantic shore.",
     image: caperossImg,
-    price: 6_900,
-    currency: 'NAD',
     badge: 'Wildlife',
     badgeColor: 'bg-cyan-700',
     category: 'Namibia',
@@ -311,8 +292,6 @@ export const destinations = [
     description:
       'Soaring above desert sands, Dubai blends record-breaking architecture, world-class shopping, and ancient souks with Michelin-starred dining and year-round sunshine. Luxury, reimagined.',
     image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&h=560&fit=crop&q=80',
-    price: 44_900,
-    currency: 'NAD',
     badge: 'Luxury',
     badgeColor: 'bg-yellow-600',
     category: 'Middle East',
@@ -356,8 +335,6 @@ export const destinations = [
     description:
       'Table Mountain rising above two oceans, world-class wine estates, pristine beaches, and the Cape Peninsula — Cape Town delivers one of the most complete travel experiences on the African continent.',
     image: 'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=800&h=560&fit=crop&q=80',
-    price: 38_500,
-    currency: 'NAD',
     badge: 'Must-See',
     badgeColor: 'bg-brand-blue',
     category: 'Southern Africa',
@@ -402,8 +379,6 @@ export const destinations = [
     description:
       "Ancient Arab trading ports, clove-scented air, and powder-white beaches lapped by the warm Indian Ocean — Zanzibar is Tanzania's most seductive and storied island escape.",
     image: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&h=560&fit=crop&q=80',
-    price: 52_000,
-    currency: 'NAD',
     badge: 'Island Escape',
     badgeColor: 'bg-cyan-600',
     category: 'East Africa',
@@ -448,8 +423,6 @@ export const destinations = [
     description:
       "Five pristine islands floating in a turquoise marine national park — Bazaruto is Mozambique's crown jewel, where dugongs, manta rays, and flamingos share the most spectacular coastal wilderness in East Africa.",
     image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=560&fit=crop&q=80',
-    price: 58_500,
-    currency: 'NAD',
     badge: 'Remote',
     badgeColor: 'bg-teal-600',
     category: 'East Africa',
@@ -494,8 +467,6 @@ export const destinations = [
     description:
       "From the thundering Kalandula Falls — one of Africa's largest waterfalls — to the surreal Namibe Desert coast and the vibrant capital Luanda, Angola is Africa's last great undiscovered travel frontier.",
     image: angolaImg,
-    price: 44_000,
-    currency: 'NAD',
     badge: 'Off the Beaten Track',
     badgeColor: 'bg-amber-700',
     category: 'West Africa',
