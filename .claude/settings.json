@@ -8,7 +8,8 @@
       "Bash(node --experimental-vm-modules -e ' *)",
       "Bash(grep -v \"^$\")",
       "Bash(curl -s http://localhost:5173/src/components/TourCard.jsx)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:5173/src/pages/TourDetail.jsx)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:5173/src/pages/TourDetail.jsx)",
+      "Bash(python3 -c \"import xml.dom.minidom as m; m.parse\\('public/sitemap.xml'\\); print\\('VALID XML'\\)\")"
     ]
   }
 }
